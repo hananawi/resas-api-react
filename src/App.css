@@ -1,38 +1,148 @@
-.App {
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400);
+
+.my-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  width: 70%;
+  margin: auto;
+  position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  .my-app {
+    width: 85%;
+    padding: 0;
+  }
+  .recharts-wrapper {
+    margin-inline-start: -32px;
+  }
+}
+
+.my-app::before {
+  content: 'a';
+  font-family: 'Material Icons';
+  opacity: 0;
+}
+
+.cities {
+  display: flex;
+  flex-wrap: wrap;
+  margin-block-end: 2rem;
+}
+
+.cities > div {
+  margin-inline-start: 1rem;
+  margin-block-end: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.cities > div::before {
+  content: '';
+  display: inline-block;
+  border: 1px solid #000;
+  width: 1rem;
+  height: 1rem;
+}
+
+.cities > div.active::after {
+  content: 'check'; /* check icon (google font) */
+  font-family: 'Material Icons';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.recharts-wrapper {
+  position: relative;
+  /* transform: scale(0.7); */
+}
+
+.recharts-wrapper::before {
+  content: '人口数';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50%, -100%);
+}
+
+.recharts-wrapper::after {
+  content: '年度';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(150%, -100%);
+}
+
+.recharts-wrapper.active::after {
+  transform: translate(-100%, -100%);
+}
+
+.animated-loading-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.animated-loading {
+  position: absolute;
+  margin: auto; /* vertical center */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  line-height: 3rem;
+  font-size: 3rem;
+  height: 3rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(50, 255, 50, 0.5), 0 0 5px rgba(100, 255, 100, 0.5);
+  font-family: 'Source Code Pro', monospace;
+  user-select: none;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.animated-loading > span {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  transform: translateX(100%) scale(0.6);
+  transition: transform 0.5s ease;
+  /* cursor: default; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.animated-loading > span.done {
+  transform: translateX(0) scale(1);
+  color: #6f6;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.animated-loading::before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.animated-loading::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.5) 50%);
+  /* z-index: 2; */
 }
