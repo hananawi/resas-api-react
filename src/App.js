@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
+import PropTypes from "prop-types";
 
 import "./App.css";
 
@@ -45,8 +46,6 @@ function AnimatedLetters(props) {
       clearTimeout(timeoutId.current);
     };
   }, []);
-
-  // console.log(11111);
 
   function render() {
     if (done.current < props.string.length) {
@@ -88,10 +87,13 @@ function AnimatedLetters(props) {
   );
 }
 
+AnimatedLetters.propTypes = {
+  string: PropTypes.string,
+};
+
 function CustomizedTooltip(props) {
   const { active, payload } = props;
   if (active && payload && payload.length) {
-    // console.log(props);
     return (
       <div>
         <div>年度: {payload[0].payload.year}</div>
@@ -108,9 +110,12 @@ function CustomizedTooltip(props) {
   return null;
 }
 
-function App() {
-  console.log("rendered");
+CustomizedTooltip.propTypes = {
+  active: PropTypes.any,
+  payload: PropTypes.any,
+};
 
+function App() {
   const [cities, setCities] = useState([]);
   const [cityNum, setCityNum] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -130,14 +135,12 @@ function App() {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log("before setState");
         setCities(
           json.result.map((val) => {
             val.checkbox = false;
             return val;
           })
         );
-        console.log("after setState");
         setIsLoading(false);
       })
       .catch((err) => {
@@ -146,7 +149,6 @@ function App() {
   }, []);
 
   function handleCitiesClick(e) {
-    console.log(population.current);
     if (!("prefcode" in e.target.dataset)) {
       return;
     }
@@ -191,7 +193,6 @@ function App() {
         });
     } else {
       setCities((prev) => {
-        console.log("setCities");
         for (let i = 0; i < prev.length; i++) {
           if (prev[i].prefCode == prefCode) {
             prev[i].checkbox = !prev[i].checkbox;
