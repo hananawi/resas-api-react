@@ -42,7 +42,10 @@
     "packages/*"
   ],
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "eslint": "^8.5.0",
+    "eslint-plugin-react": "^7.28.0",
+    "gh-pages": "^3.2.3",
+    "prettier": "2.5.1"
   },
   "homepage": "https://hananawi.github.io/resas-api-react"
 }

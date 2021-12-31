@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400);
 
 .my-app {
@@ -24,8 +24,8 @@
 }
 
 .my-app::before {
-  content: 'a';
-  font-family: 'Material Icons';
+  content: "a";
+  font-family: "Material Icons";
   opacity: 0;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .cities > div::before {
-  content: '';
+  content: "";
   display: inline-block;
   border: 1px solid #000;
   width: 1rem;
@@ -54,8 +54,8 @@
 }
 
 .cities > div.active::after {
-  content: 'check'; /* check icon (google font) */
-  font-family: 'Material Icons';
+  content: "check"; /* check icon (google font) */
+  font-family: "Material Icons";
   position: absolute;
   left: 0;
   top: 50%;
@@ -68,7 +68,7 @@
 }
 
 .recharts-wrapper::before {
-  content: '人口数';
+  content: "人口数";
   position: absolute;
   top: 0;
   left: 0;
@@ -76,7 +76,7 @@
 }
 
 .recharts-wrapper::after {
-  content: '年度';
+  content: "年度";
   position: absolute;
   bottom: 0;
   right: 0;
@@ -107,7 +107,7 @@
   height: 3rem;
   color: #fff;
   text-shadow: 0 0 10px rgba(50, 255, 50, 0.5), 0 0 5px rgba(100, 255, 100, 0.5);
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   user-select: none;
   text-align: center;
 }
@@ -127,7 +127,7 @@
 }
 
 .animated-loading::before {
-  content: '';
+  content: "";
   position: fixed;
   width: 100%;
   height: 100%;
@@ -137,7 +137,7 @@
 }
 
 .animated-loading::after {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
